@@ -1,15 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <!-- Judul halaman spesifik untuk halaman Prestasi -->
-    <title>Prestasi - UKM-O VOLIJE</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-    <!-- Header: Elemen tata letak atas (Logo & Navigasi Utama) -->
-    <header>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- Judul halaman spesifik untuk halaman Prestasi -->
+        <title>Prestasi - UKM-O VOLIJE</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Header: Elemen tata letak atas (Logo & Navigasi Utama) -->
+        <header>
             <!-- Wadah untuk Logo dan Nama Organisasi -->
             <div>
                 <img
@@ -42,39 +41,94 @@
             <hr />
         </header>
 
-    <!-- Main: Area konten utama spesifik halaman prestasi -->
-    <main>
-        <h2>Prestasi Volije</h2>
-        
-        <!-- Article: Elemen independen untuk membungkus satu postingan/artikel prestasi -->
-        <article>
-            <!-- Gambar dokumentasi pencapaian/prestasi -->
-            <img src="gambar-prestasi.jpg" alt="Gambar Prestasi" width="300">
-            <h3>Informasi Prestasi:</h3>
-            <!-- Area penjelas pencapaian yang diraih -->
-            <p>Deskripsi prestasi yang telah diraih oleh UKM-O Volije dapat dituliskan di sini.</p>
-        </article>
-    </main>
+        <!-- Main: Area konten utama spesifik halaman prestasi -->
+        <main class="halaman-prestasi">
+            <h2>Prestasi Volije</h2>
 
-    <footer class="site-footer">
-        <div class="footer-logos">
-            <img src="img/logo-volije.png" alt="Logo VOLIJE" />
-        </div>
-        <section class="footer-contact" aria-label="Kontak VOLIJE">
-            <h2>Contact Person:</h2>
-            <p class="footer-contact-link">
-                <span class="footer-icon footer-icon-whatsapp" aria-hidden="true">☎</span>
-                <span>08XX-XXXX-XXXX</span>
+            <!-- Wadah daftar prestasi (duplikasi tag <article> di dalamnya untuk menambah prestasi) -->
+            <div class="daftar-prestasi">
+                <!-- Prestasi 1 -->
+                <article>
+                    <div class="prestasi-gambar">
+                        <img src="img/prestasi1.jpeg" alt="Gambar Prestasi 1" />
+                    </div>
+                    <div class="prestasi-detail">
+                        <h3>Informasi Prestasi:</h3>
+                        <p>
+                            Deskripsi prestasi pertama yang telah diraih oleh
+                            UKM-O Volije dapat dituliskan di sini, lengkap
+                            dengan nama kejuaraan, tahun, dan kategori juara.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Prestasi 2 -->
+                <article>
+                    <div class="prestasi-gambar">
+                        <img
+                            src="gambar-prestasi2.jpg"
+                            alt="Gambar Prestasi 2"
+                        />
+                    </div>
+                    <div class="prestasi-detail">
+                        <h3>Informasi Prestasi:</h3>
+                        <p>
+                            Deskripsi prestasi kedua yang telah diraih oleh
+                            UKM-O Volije dapat dituliskan di sini.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Prestasi 3 -->
+                <article>
+                    <div class="prestasi-gambar">
+                        <img
+                            src="gambar-prestasi3.jpg"
+                            alt="Gambar Prestasi 3"
+                        />
+                    </div>
+                    <div class="prestasi-detail">
+                        <h3>Informasi Prestasi:</h3>
+                        <p>
+                            Deskripsi prestasi ketiga yang telah diraih oleh
+                            UKM-O Volije dapat dituliskan di sini.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-logos">
+                <img src="img/logo-volije.png" alt="Logo VOLIJE" />
+            </div>
+            <section class="footer-contact" aria-label="Kontak VOLIJE">
+                <h2>Contact Person:</h2>
+                <p class="footer-contact-link">
+                    <span
+                        class="footer-icon footer-icon-whatsapp"
+                        aria-hidden="true"
+                    >
+                        ☎
+                    </span>
+                    <span>08XX-XXXX-XXXX</span>
+                </p>
+                <a
+                    class="footer-contact-link"
+                    href="https://www.instagram.com/volije_?cplk=MXN0MmU2NnY3bWVkYg=="
+                >
+                    <span
+                        class="footer-icon footer-icon-instagram"
+                        aria-hidden="true"
+                    ></span>
+                    <span>@volije_</span>
+                </a>
+            </section>
+            <p class="footer-note">
+                Jika ada pesan, kesan, kritik dan saran atau ada artikel yang
+                kurang layak dipublikasikan. Silahkan hubungi saya melalui
+                contact person.
             </p>
-            <a class="footer-contact-link" href="https://www.instagram.com/volije_?cplk=MXN0MmU2NnY3bWVkYg==">
-                <span class="footer-icon footer-icon-instagram" aria-hidden="true"></span>
-                <span>@volije_</span>
-            </a>
-        </section>
-        <p class="footer-note">
-            Jika ada pesan, kesan, kritik dan saran atau ada artikel yang kurang layak dipublikasikan. Silahkan hubungi saya melalui contact person.
-        </p>
-    </footer>
-
-</body>
+        </footer>
+    </body>
 </html>
