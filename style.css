@@ -15,15 +15,11 @@ body {
 header {
     background-color: #0b1f3a; /* Warna biru navy tua yang elegan */
     color: #ffffff;
-    padding: 20px 30px;
-}
-
-/* Mengatur tata letak logo/nama dan navigasi agar sejajar (Flexbox) */
-header {
+    padding: 16px clamp(20px, 4vw, 48px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    gap: 24px;
 }
 
 /* Wadah Logo dan Nama Organisasi */
@@ -31,6 +27,7 @@ header div:first-child {
     display: flex;
     align-items: center;
     gap: 12px; /* Jarak antara logo dan teks */
+    flex-shrink: 0;
 }
 
 header div:first-child span {
@@ -42,37 +39,46 @@ header div:first-child span {
 /* Mengatur ukuran, bentuk bulat, dan tata letak logo di header */
 header div:first-child img {
     width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
     object-fit: cover;
     border-radius: 50%;
     border: 2px solid #ffffff;
 }
 
-/* Memastikan teks "VOLIJE" dan logo sejajar di tengah secara vertikal */
-header div:first-child {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+header nav {
+    min-width: 0;
+    margin-left: auto;
 }
 
 /* Navigasi Menu */
 header nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     align-items: center;
+    gap: 4px;
 }
 
 header nav ul li a {
+    display: block;
     color: #ffffff;
+    padding: 9px 10px;
+    border-radius: 8px;
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    transition: color 0.3s ease;
+    white-space: nowrap;
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease;
 }
 
 /* Efek hover saat kursor diarahkan ke menu */
 header nav ul li a:hover {
     color: #4da6ff;
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 /* Menghilangkan garis <hr> bawaan jika sudah diatur dengan border/padding CSS */
@@ -96,7 +102,7 @@ header nav ul li .dropdown-content {
     min-width: 180px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 99;
-    border-radius: 4px;
+    border-radius: 8px;
     overflow: hidden;
 }
 
@@ -120,6 +126,54 @@ header nav ul li .dropdown-content a:hover {
 /* Menampilkan dropdown ketika kursor diarahkan ke elemen li.dropdown */
 header nav ul li.dropdown:hover .dropdown-content {
     display: block;
+}
+
+@media (max-width: 960px) {
+    header {
+        flex-direction: column;
+        gap: 14px;
+        padding: 18px 24px;
+    }
+
+    header nav {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    header nav ul {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 560px) {
+    header {
+        gap: 12px;
+        padding: 16px 14px;
+    }
+
+    header div:first-child img {
+        width: 44px;
+        height: 44px;
+        flex-basis: 44px;
+    }
+
+    header div:first-child span {
+        font-size: 20px;
+    }
+
+    header nav ul {
+        gap: 2px;
+    }
+
+    header nav ul li a {
+        padding: 8px 9px;
+        font-size: 13px;
+    }
+
+    header nav ul li .dropdown-content {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 /* --- INTRO BERANDA --- */
@@ -401,30 +455,36 @@ header nav ul li.dropdown:hover .dropdown-content {
 /* --- FOOTER --- */
 footer.site-footer {
     display: grid;
-    grid-template-columns: minmax(140px, 0.8fr) minmax(240px, 1fr) minmax(
-            300px,
-            1.2fr
+    grid-template-columns: minmax(120px, 0.7fr) minmax(220px, 1fr) minmax(
+            0,
+            1.4fr
         );
     align-items: center;
-    gap: 36px;
-    min-height: 240px;
-    padding: 32px 3%;
+    gap: clamp(20px, 4vw, 48px);
+    min-height: 220px;
+    padding: 36px 5%;
     background-color: #0b1f3a;
-    border: 1px solid #ffffff;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
     color: #ffffff;
 }
 
 .footer-logos {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .footer-logos img {
-    width: 112px;
-    height: 112 px;
+    display: block;
+    width: 104px;
+    height: 104px;
     object-fit: contain;
     border: 2px solid #ffffff;
     border-radius: 50%;
+}
+
+.footer-contact {
+    min-width: 0;
 }
 
 .footer-contact h2 {
@@ -436,8 +496,9 @@ footer.site-footer {
     display: flex;
     align-items: center;
     gap: 12px;
-    width: fit-content;
-    margin: 0 0 14px;
+    width: max-content;
+    max-width: 100%;
+    margin: 0 0 12px;
     color: #ffffff;
     font-size: 16px;
     font-weight: 600;
@@ -449,7 +510,7 @@ footer.site-footer {
 }
 
 .footer-icon {
-    position: auto;
+    position: relative;
     display: inline-flex;
     flex: 0 0 38px;
     width: 38px;
@@ -503,6 +564,7 @@ footer.site-footer {
 }
 
 .footer-note {
+    max-width: 52ch;
     margin: 0;
     font-size: 16px;
     line-height: 1.6;
@@ -510,29 +572,41 @@ footer.site-footer {
 
 @media (max-width: 900px) {
     footer.site-footer {
-        grid-template-columns: minmax(120px, 0.6fr) minmax(240px, 1fr);
+        grid-template-columns: minmax(96px, 0.55fr) minmax(0, 1fr);
         gap: 24px;
-        padding: 28px 3%;
+        padding: 32px 5%;
     }
 
     .footer-note {
         grid-column: 1 / -1;
+        max-width: 70ch;
     }
 }
 
 @media (max-width: 560px) {
     footer.site-footer {
         grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 24px;
+        justify-items: center;
+        gap: 20px;
+        padding: 28px 20px;
     }
 
     .footer-logos {
         justify-content: center;
     }
 
+    .footer-logos img {
+        width: 88px;
+        height: 88px;
+    }
+
+    .footer-contact {
+        text-align: center;
+    }
+
     .footer-note {
         grid-column: auto;
+        max-width: 42ch;
         font-size: 15px;
         text-align: center;
     }
@@ -543,6 +617,8 @@ footer.site-footer {
 
     .footer-contact-link {
         font-size: 16px;
+        margin-right: auto;
+        margin-left: auto;
     }
 }
 
