@@ -1,0 +1,459 @@
+/* Pengaturan Dasar Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+/* --- STYLING HEADER --- */
+header {
+    background-color: #0b1f3a; /* Warna biru navy tua yang elegan */
+    color: #ffffff;
+    padding: 20px 30px;
+}
+
+/* Mengatur tata letak logo/nama dan navigasi agar sejajar (Flexbox) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Wadah Logo dan Nama Organisasi */
+header div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Jarak antara logo dan teks */
+}
+
+header div:first-child span {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Mengatur ukuran, bentuk bulat, dan tata letak logo di header */
+header div:first-child img {
+    width: 50px;       
+    object-fit: cover; 
+    border-radius: 50%; 
+    border: 2px solid #ffffff; 
+}
+
+/* Memastikan teks "VOLIJE" dan logo sejajar di tengah secara vertikal */
+header div:first-child {
+    display: flex;
+    align-items: center; 
+    gap: 12px;
+}
+
+/* Navigasi Menu */
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Efek hover saat kursor diarahkan ke menu */
+header nav ul li a:hover {
+    color: #4da6ff; 
+}
+
+/* Menghilangkan garis <hr> bawaan jika sudah diatur dengan border/padding CSS */
+header hr {
+    display: none; 
+}
+/* --- STYLING MENU DROPDOWN NAVBAR --- */
+
+/* Membuat posisi elemen dropdown menjadi relative */
+header nav ul li.dropdown {
+    position: relative;
+}
+
+/* Mengatur tampilan kotak menu dropdown (posisi melayang di bawah) */
+header nav ul li .dropdown-content {
+    display: none; /* Disembunyikan secara default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0b1f3a; /* Senada dengan warna header */
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 99;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Mengatur tata letak link di dalam dropdown */
+header nav ul li .dropdown-content a {
+    color: #ffffff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Efek saat kursor berada di atas pilihan menu dropdown */
+header nav ul li .dropdown-content a:hover {
+    background-color: #16365f;
+    color: #4da6ff;
+}
+
+/* Menampilkan dropdown ketika kursor diarahkan ke elemen li.dropdown */
+header nav ul li.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* --- INTRO BERANDA --- */
+.intro-section {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 36px 24px 48px;
+    background-color: #ffffff;
+    color: #111111;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.intro-section h2 {
+    margin: 0 0 24px;
+    text-align: center;
+    font-size: clamp(28px, 3.8vw, 38px);
+    line-height: 1.2;
+}
+
+.intro-content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: 28px;
+}
+
+.intro-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center 42%;
+}
+
+.intro-text {
+    display: grid;
+    gap: 20px;
+}
+
+.intro-text p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+/* --- HALAMAN PROFIL --- */
+.profile-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 1fr);
+    align-items: start;
+    gap: 32px;
+    max-width: 1280px;
+    margin: 36px auto 48px;
+    padding: 32px;
+    background-color: #ffffff;
+}
+
+.profile-copy h2 {
+    margin-bottom: 16px;
+    color: #0b1f3a;
+    font-size: 30px;
+}
+
+.profile-copy p {
+    margin-bottom: 28px;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.profile-copy h3 {
+    margin-bottom: 14px;
+    color: #0b1f3a;
+    font-size: 21px;
+    line-height: 1.35;
+}
+
+.profile-copy ol {
+    display: grid;
+    gap: 12px;
+    padding-left: 24px;
+    line-height: 1.6;
+}
+
+.profile-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
+    align-items: start;
+    gap: 18px;
+}
+
+.profile-gallery img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- HALAMAN PENDAFTARAN --- */
+.registration-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.55fr);
+    align-items: center;
+    gap: 48px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 36px 32px;
+    background-color: #ffffff;
+}
+
+.registration-content h2 {
+    margin-bottom: 20px;
+    color: #0b1f3a;
+    font-size: 30px;
+}
+
+.registration-content ol {
+    display: grid;
+    gap: 14px;
+    padding-left: 24px;
+    line-height: 1.6;
+}
+
+.registration-logo {
+    display: block;
+    width: 200%;
+    max-width: 500px;
+    height: auto;
+    justify-self: center;
+}
+
+@media (max-width: 700px) {
+    .intro-section {
+        padding: 28px 20px 36px;
+    }
+
+    .intro-content {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .intro-image {
+        max-width: 480px;
+        margin: 0 auto;
+    }
+
+    .intro-text p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 800px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin: 24px auto 36px;
+        padding: 24px;
+    }
+
+    .registration-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin: 24px auto 36px;
+        padding: 24px;
+    }
+
+    .profile-copy h2 {
+        font-size: 26px;
+    }
+
+    .profile-copy p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-layout {
+        margin: 16px auto 28px;
+        padding: 20px;
+    }
+
+    .registration-layout {
+        margin: 16px auto 28px;
+        padding: 20px;
+    }
+
+    .profile-gallery {
+        gap: 14px;
+    }
+}
+
+
+/* --- FOOTER --- */
+footer.site-footer {
+    display: grid;
+    grid-template-columns: minmax(140px, 0.8fr) minmax(240px, 1fr) minmax(300px, 1.2fr);
+    align-items: center;
+    gap: 36px;
+    min-height: 240px;
+    padding: 32px 3%;
+    background-color: #0b1f3a;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+.footer-logos {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logos img {
+    width: 112px;
+    height: 112 px;
+    object-fit: contain;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+}
+
+.footer-contact h2 {
+    margin: 0 0 14px;
+    font-size: 20px;
+}
+
+.footer-contact-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: fit-content;
+    margin: 0 0 14px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.footer-contact-link:hover {
+    text-decoration: underline;
+}
+
+.footer-icon {
+    position: auto;
+    display: inline-flex;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-icon-whatsapp {
+    border: 3px solid currentColor;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.footer-icon-whatsapp::after {
+    position: absolute;
+    bottom: -2px;
+    left: 1px;
+    width: 11px;
+    height: 11px;
+    border-bottom: 3px solid currentColor;
+    border-left: 3px solid currentColor;
+    background-color: #0b1f3a;
+    content: "";
+    transform: skew(-25deg) rotate(-12deg);
+}
+
+.footer-icon-instagram {
+    border: 3px solid currentColor;
+    border-radius: 11px;
+}
+
+.footer-icon-instagram::before {
+    width: 15px;
+    height: 15px;
+    border: 3px solid currentColor;
+    border-radius: 50%;
+    content: "";
+}
+
+.footer-icon-instagram::after {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: currentColor;
+    content: "";
+}
+
+.footer-note {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    footer.site-footer {
+        grid-template-columns: minmax(120px, 0.6fr) minmax(240px, 1fr);
+        gap: 24px;
+        padding: 28px 3%;
+    }
+
+    .footer-note {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 560px) {
+    footer.site-footer {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 24px;
+    }
+
+    .footer-logos {
+        justify-content: center;
+    }
+
+    .footer-note {
+        grid-column: auto;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .footer-contact h2 {
+        font-size: 18px;
+    }
+
+    .footer-contact-link {
+        font-size: 16px;
+    }
+}
