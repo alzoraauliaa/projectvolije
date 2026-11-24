@@ -194,33 +194,165 @@ main li {
     line-height: 1.6;
 }
 
-/* --- INTRO BERANDA --- */
+/* --- BANNER GALERI BERANDA --- */
+.home-hero {
+    max-width: 1000px;
+    margin: 36px auto 0;
+    padding: 0 32px;
+}
+
+.home-hero-eyebrow {
+    margin: 0 0 6px;
+    color: #1677d2;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.home-hero h1 {
+    margin: 0;
+    color: #0b1f3a;
+    font-size: 30px;
+    line-height: 1.3;
+}
+
+.home-hero-description {
+    margin: 4px 0 18px;
+    color: #667085;
+    font-size: 15px;
+}
+
+.home-carousel {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2.4 / 1;
+    min-height: 300px;
+    border-radius: 18px;
+    background-color: #d9d9d9;
+    box-shadow: 0 8px 24px rgba(11, 31, 58, 0.12);
+}
+
+.home-slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    overflow: hidden;
+}
+
+.home-slide.is-active {
+    display: block;
+}
+
+.home-slide > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-slide-caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    gap: 5px;
+    padding: 70px 26px 26px;
+    background: linear-gradient(transparent, rgba(7, 18, 35, 0.88));
+    color: #ffffff;
+}
+
+.home-slide-caption p {
+    margin: 0;
+    color: #8fe8ff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.home-slide-caption h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 27px;
+    line-height: 1.25;
+}
+
+.home-slide-caption span {
+    max-width: 70ch;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.home-carousel-arrow,
+.home-carousel-dots {
+    display: none;
+}
+
+.home-carousel.is-ready .home-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(11, 31, 58, 0.66);
+    color: #ffffff;
+    font-size: 17px;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.home-carousel.is-ready .home-carousel-arrow:hover {
+    background: rgba(11, 31, 58, 0.9);
+}
+
+.home-carousel-prev {
+    left: 16px;
+}
+
+.home-carousel-next {
+    right: 16px;
+}
+
+.home-carousel.is-ready .home-carousel-dots {
+    position: absolute;
+    right: 0;
+    bottom: 14px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.home-carousel-dots button {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.58);
+    cursor: pointer;
+}
+
+.home-carousel-dots button.is-active {
+    width: 24px;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
 .intro-section {
     max-width: 1000px;
-    margin: 40px auto 0;
-    padding: 36px 32px 32px;
+    margin: 28px auto 40px;
+    padding: 32px;
     background-color: #ffffff;
     color: #333333;
 }
 
 .intro-section h2 {
-    text-align: center;
-    margin: 0 0 20px;
-}
-
-.intro-content {
-    display: grid;
-    grid-template-columns: 320px 1fr; /* Kolom kiri pas selebar gambar, sisa ruang diisi teks */
-    align-items: start; /* Membuat baris pertama teks sejajar dengan bagian atas gambar */
-    gap: 28px; /* Jarak antara gambar dan teks (ubah angkanya jika ingin lebih dekat/jauh) */
-}
-
-.intro-image {
-    display: block;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    object-position: center 42%;
+    margin: 0 0 18px;
 }
 
 .intro-text {
@@ -230,13 +362,6 @@ main li {
 
 .intro-text p {
     margin: 0;
-}
-
-.home-gallery {
-    max-width: 1000px;
-    margin: 0 auto 40px;
-    padding: 12px 32px 36px;
-    background-color: #ffffff;
 }
 
 /* --- HALAMAN PROFIL --- */
@@ -364,14 +489,32 @@ main li {
 }
 
 @media (max-width: 700px) {
-    .intro-section {
+    .home-hero {
         margin-top: 24px;
-        padding: 28px 20px 24px;
+        padding: 0 20px;
     }
 
-    .home-gallery {
-        margin-bottom: 24px;
-        padding: 12px 20px 28px;
+    .home-hero h1 {
+        font-size: 26px;
+    }
+
+    .home-carousel {
+        height: clamp(230px, 62vw, 320px);
+        aspect-ratio: auto;
+        min-height: 0;
+    }
+
+    .home-slide-caption {
+        padding: 56px 20px 22px;
+    }
+
+    .home-slide-caption h2 {
+        font-size: 22px;
+    }
+
+    .intro-section {
+        margin: 24px 20px 32px;
+        padding: 28px 20px 24px;
     }
 
     .structure-section {
@@ -384,14 +527,17 @@ main li {
         gap: 16px;
     }
 
-    .intro-content {
-        grid-template-columns: 1fr;
-        gap: 22px;
+    .home-carousel.is-ready .home-carousel-arrow {
+        width: 36px;
+        height: 36px;
     }
 
-    .intro-image {
-        max-width: 480px;
-        margin: 0 auto;
+    .home-carousel-prev {
+        left: 10px;
+    }
+
+    .home-carousel-next {
+        right: 10px;
     }
 }
 

@@ -44,42 +44,76 @@
         </header>
         <!-- MAIN KONTEN: Bagian isi utama dari halaman ini -->
         <main>
-            <section class="intro-section">
-                <h2>Informasi Singkat UKM-O VOLIJE</h2>
-                <div class="intro-content">
-                    <img
-                        class="intro-image"
-                        src="img/volijeawal.jpeg"
-                        alt="Dokumentasi kegiatan UKM-O VOLIJE"
-                    />
-                    <div class="intro-text">
-                        <p>
-                            UKM-O VOLIJE merupakan Unit Kegiatan Mahasiswa
-                            Olahraga bidang bola voli di Politeknik Negeri
-                            Jember (POLIJE). UKM ini menjadi wadah bagi
-                            mahasiswa yang memiliki minat dalam olahraga bola
-                            voli untuk mengembangkan kemampuan, meningkatkan
-                            kebugaran fisik, serta membangun kerja sama dan
-                            sportivitas.
-                        </p>
-                        <p>
-                            Melalui kegiatan latihan rutin, latih tanding
-                            (sparing), dan turnamen, UKM-O VOLIJE memberikan
-                            kesempatan kepada mahasiswa untuk meningkatkan
-                            keterampilan bermain voli dan meraih prestasi.
-                            Selain itu, UKM ini juga menjadi tempat untuk
-                            mempererat kebersamaan, menambah pengalaman, dan
-                            mengembangkan potensi mahasiswa di bidang olahraga.
-                        </p>
+            <section class="home-hero" aria-labelledby="home-hero-title">
+                <p class="home-hero-eyebrow">SELAMAT DATANG</p>
+                <h1 id="home-hero-title">UKM-O VOLIJE</h1>
+                <p class="home-hero-description">
+                    Momen latihan dan kebersamaan keluarga UKM-O VOLIJE.
+                </p>
+
+                <div class="home-carousel" aria-label="Foto kegiatan UKM-O VOLIJE">
+                    <div class="home-carousel-slides" aria-live="polite">
+                        <article class="home-slide is-active" aria-hidden="false">
+                            <img src="img/volia.jpeg" alt="Kegiatan UKM-O VOLIJE" />
+                            <div class="home-slide-caption">
+                                <p>POLITEKNIK NEGERI JEMBER</p>
+                                <h2>Kegiatan UKM-O VOLIJE</h2>
+                                <span>Berlatih, bertumbuh, dan berprestasi bersama.</span>
+                            </div>
+                        </article>
+                        <article class="home-slide" aria-hidden="true">
+                            <img src="img/volib.jpeg" alt="Kebersamaan anggota UKM-O VOLIJE" />
+                            <div class="home-slide-caption">
+                                <p>KEBERSAMAAN DI LAPANGAN</p>
+                                <h2>Satu Tim, Satu Semangat</h2>
+                                <span>Membangun kerja sama dan sportivitas.</span>
+                            </div>
+                        </article>
+                        <article class="home-slide" aria-hidden="true">
+                            <img src="img/volic.jpeg" alt="Dokumentasi kegiatan voli UKM-O VOLIJE" />
+                            <div class="home-slide-caption">
+                                <p>GALERI KEGIATAN</p>
+                                <h2>Terus Bergerak dan Berkembang</h2>
+                                <span>Menyalurkan minat dan mengembangkan potensi.</span>
+                            </div>
+                        </article>
+                    </div>
+                    <button class="home-carousel-arrow home-carousel-prev" type="button" aria-label="Foto sebelumnya">
+                        &#10094;
+                    </button>
+                    <button class="home-carousel-arrow home-carousel-next" type="button" aria-label="Foto berikutnya">
+                        &#10095;
+                    </button>
+                    <div class="home-carousel-dots" aria-label="Pilih foto">
+                        <button class="is-active" type="button" aria-label="Tampilkan foto 1" aria-current="true"></button>
+                        <button type="button" aria-label="Tampilkan foto 2"></button>
+                        <button type="button" aria-label="Tampilkan foto 3"></button>
                     </div>
                 </div>
             </section>
 
-            <section class="home-gallery">
-                <h3>Galeri Kegiatan UKM-O VOLIJE</h3>
-                <img src="img/volia.jpeg" alt="Kegiatan 1" width="200" />
-                <img src="img/volib.jpeg" alt="Kegiatan 2" width="200" />
-                <img src="img/volic.jpeg" alt="Kegiatan 3" width="200" />
+            <section class="intro-section">
+                <h2>Informasi Singkat UKM-O VOLIJE</h2>
+                <div class="intro-text">
+                    <p>
+                        UKM-O VOLIJE merupakan Unit Kegiatan Mahasiswa
+                        Olahraga bidang bola voli di Politeknik Negeri
+                        Jember (POLIJE). UKM ini menjadi wadah bagi
+                        mahasiswa yang memiliki minat dalam olahraga bola
+                        voli untuk mengembangkan kemampuan, meningkatkan
+                        kebugaran fisik, serta membangun kerja sama dan
+                        sportivitas.
+                    </p>
+                    <p>
+                        Melalui kegiatan latihan rutin, latih tanding
+                        (sparing), dan turnamen, UKM-O VOLIJE memberikan
+                        kesempatan kepada mahasiswa untuk meningkatkan
+                        keterampilan bermain voli dan meraih prestasi.
+                        Selain itu, UKM ini juga menjadi tempat untuk
+                        mempererat kebersamaan, menambah pengalaman, dan
+                        mengembangkan potensi mahasiswa di bidang olahraga.
+                    </p>
+                </div>
             </section>
         </main>
 
@@ -104,5 +138,65 @@
                 Jika ada pesan, kesan, kritik dan saran atau ada artikel yang kurang layak dipublikasikan. Silahkan hubungi saya melalui contact person.
             </p>
         </footer>
+        <script>
+            const carousel = document.querySelector(".home-carousel");
+            const slides = Array.from(carousel.querySelectorAll(".home-slide"));
+            const dots = Array.from(carousel.querySelectorAll(".home-carousel-dots button"));
+            const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+            let activeSlide = 0;
+            let autoplay;
+
+            function showSlide(index) {
+                activeSlide = (index + slides.length) % slides.length;
+                slides.forEach((slide, slideIndex) => {
+                    const isActive = slideIndex === activeSlide;
+                    slide.classList.toggle("is-active", isActive);
+                    slide.setAttribute("aria-hidden", String(!isActive));
+                    dots[slideIndex].classList.toggle("is-active", isActive);
+                    if (isActive) {
+                        dots[slideIndex].setAttribute("aria-current", "true");
+                    } else {
+                        dots[slideIndex].removeAttribute("aria-current");
+                    }
+                });
+            }
+
+            function stopAutoplay() {
+                window.clearInterval(autoplay);
+            }
+
+            function startAutoplay() {
+                stopAutoplay();
+                if (!reducedMotion.matches) {
+                    autoplay = window.setInterval(() => showSlide(activeSlide + 1), 5000);
+                }
+            }
+
+            carousel.classList.add("is-ready");
+            carousel.querySelector(".home-carousel-prev").addEventListener("click", () => {
+                showSlide(activeSlide - 1);
+                startAutoplay();
+            });
+            carousel.querySelector(".home-carousel-next").addEventListener("click", () => {
+                showSlide(activeSlide + 1);
+                startAutoplay();
+            });
+            dots.forEach((dot, index) => {
+                dot.addEventListener("click", () => {
+                    showSlide(index);
+                    startAutoplay();
+                });
+            });
+            carousel.addEventListener("mouseenter", stopAutoplay);
+            carousel.addEventListener("mouseleave", startAutoplay);
+            carousel.addEventListener("focusin", stopAutoplay);
+            carousel.addEventListener("focusout", (event) => {
+                if (!carousel.contains(event.relatedTarget)) {
+                    startAutoplay();
+                }
+            });
+            reducedMotion.addEventListener("change", startAutoplay);
+            startAutoplay();
+        </script>
     </body>
 </html>
