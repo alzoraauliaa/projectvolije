@@ -235,12 +235,22 @@ main li {
 .home-slide {
     position: absolute;
     inset: 0;
-    display: none;
     overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.04);
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease,
+        transform 1.2s ease;
+    z-index: 0;
 }
 
 .home-slide.is-active {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 1;
 }
 
 .home-slide > img {
@@ -248,6 +258,11 @@ main li {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 5s ease;
+}
+
+.home-slide.is-active > img {
+    transform: scale(1.035);
 }
 
 .home-slide-caption {
@@ -260,6 +275,30 @@ main li {
     padding: 70px 26px 26px;
     background: linear-gradient(transparent, rgba(7, 18, 35, 0.88));
     color: #ffffff;
+}
+
+.home-slide.is-active .home-slide-caption {
+    animation: home-slide-caption-in 0.75s ease 0.25s both;
+}
+
+@keyframes home-slide-caption-in {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-slide,
+    .home-slide > img,
+    .home-slide.is-active .home-slide-caption {
+        transition: none;
+        animation: none;
+    }
 }
 
 .home-slide-caption p {
@@ -343,25 +382,84 @@ main li {
     background-color: #ffffff;
 }
 
-.intro-section {
+.organization-overview {
     max-width: 1000px;
     margin: 28px auto 40px;
     padding: 32px;
     background-color: #ffffff;
     color: #333333;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(11, 31, 58, 0.08);
 }
 
-.intro-section h2 {
-    margin: 0 0 18px;
+.overview-heading {
+    margin-bottom: 22px;
+    text-align: center;
 }
 
-.intro-text {
+.overview-eyebrow {
+    margin: 0 0 4px;
+    color: #1677d2;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.overview-heading h2 {
+    margin: 0;
+}
+
+.overview-grid {
     display: grid;
+    grid-template-columns: minmax(0, 1.15fr) repeat(2, minmax(0, 1fr));
     gap: 16px;
 }
 
-.intro-text p {
+.overview-card {
+    border: 1px solid #dfe8f3;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+    padding: 22px;
+}
+
+.overview-about {
+    border-top: 5px solid #1677d2;
+}
+
+.overview-vision {
+    border-top: 5px solid #20a39e;
+}
+
+.overview-mission {
+    border-top: 5px solid #0b1f3a;
+}
+
+.overview-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #1677d2;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.overview-card p {
     margin: 0;
+}
+
+.overview-card p + p {
+    margin-top: 12px;
+}
+
+.overview-card ul {
+    display: grid;
+    gap: 9px;
+    margin: 0;
+    padding-left: 18px;
+}
+
+.overview-card li::marker {
+    color: #1677d2;
 }
 
 /* --- HALAMAN PROFIL --- */
@@ -512,9 +610,13 @@ main li {
         font-size: 22px;
     }
 
-    .intro-section {
+    .organization-overview {
         margin: 24px 20px 32px;
         padding: 28px 20px 24px;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
     }
 
     .structure-section {
@@ -542,6 +644,10 @@ main li {
 }
 
 @media (max-width: 800px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
     .profile-layout,
     .registration-layout {
         grid-template-columns: 1fr;
@@ -549,6 +655,7 @@ main li {
         margin: 24px auto 36px;
         padding: 24px;
     }
+
 }
 
 @media (max-width: 480px) {
