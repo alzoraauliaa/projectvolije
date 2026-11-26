@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="id">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- Mengatur karakter encoding ke UTF-8 (mendukung teks universal) -->
         <title>Beranda - UKM-O VOLIJE</title>
         <!-- Judul halaman yang akan muncul di tab browser -->
@@ -52,7 +52,7 @@
                 </p>
 
                 <div class="home-carousel" aria-label="Foto kegiatan UKM-O VOLIJE">
-                    <div class="home-carousel-slides" aria-live="polite">
+                    <div class="home-carousel-slides" role="button" tabindex="0" aria-label="Tampilkan foto berikutnya" aria-live="polite">
                         <article class="home-slide is-active" aria-hidden="false">
                             <img src="img/volia.jpeg" alt="Kegiatan UKM-O VOLIJE" />
                             <div class="home-slide-caption">
@@ -115,24 +115,111 @@
                         </p>
                     </article>
 
+                    <div class="overview-section-heading">
+                        <p class="overview-eyebrow">VISI DAN MISI</p>
+                        <h3>UNIT KEGIATAN MAHASISWA (UKM) OLAHRAGA – VOLIJE</h3>
+                    </div>
+
                     <article class="overview-card overview-vision">
                         <span class="overview-label">VISI</span>
                         <p>
-                            Menjadikan UKM-O VOLIJE sebagai wadah pengembangan
-                            bola voli yang berprestasi, sportif, berintegritas,
-                            dan bersatu di lingkungan Politeknik Negeri Jember.
+                            Menjadikan UKM Bola Voli sebagai wadah pengembangan
+                            minat dan bakat mahasiswa yang unggul, berprestasi,
+                            sportif, serta menjunjung tinggi solidaritas dan
+                            kekeluargaan, baik di lingkungan kampus maupun di
+                            luar kampus.
                         </p>
                     </article>
 
                     <article class="overview-card overview-mission">
                         <span class="overview-label">MISI</span>
-                        <ul>
-                            <li>Meningkatkan kemampuan teknik, taktik, dan kebugaran anggota secara berkelanjutan.</li>
-                            <li>Membina karakter yang disiplin, bertanggung jawab, dan menjunjung tinggi sportivitas.</li>
-                            <li>Mempererat kekeluargaan serta kerja sama antaranggota dan organisasi kemahasiswaan.</li>
-                            <li>Mengembangkan prestasi UKM-O VOLIJE melalui latihan, latih tanding, dan kompetisi.</li>
+                        <ol class="overview-mission-list">
+                            <li>
+                                <h4>Mengembangkan Potensi Mahasiswa</h4>
+                                <p>
+                                    Menjadi wadah bagi mahasiswa untuk
+                                    mengembangkan minat, bakat, dan kemampuan
+                                    dalam bidang olahraga bola voli.
+                                </p>
+                            </li>
+                            <li>
+                                <h4>Meningkatkan Prestasi</h4>
+                                <p>
+                                    Meningkatkan kualitas dan kemampuan anggota
+                                    melalui latihan rutin, pembinaan, serta
+                                    mengikuti berbagai kompetisi dan turnamen
+                                    bola voli.
+                                </p>
+                            </li>
+                            <li>
+                                <h4>Membangun Solidaritas dan Kekeluargaan</h4>
+                                <p>
+                                    Menciptakan lingkungan organisasi yang
+                                    harmonis, solid, dan penuh rasa kekeluargaan
+                                    antaranggota tanpa membedakan latar belakang.
+                                </p>
+                            </li>
+                            <li>
+                                <h4>Menanamkan Nilai Sportivitas dan Disiplin</h4>
+                                <p>
+                                    Membentuk karakter anggota yang disiplin,
+                                    bertanggung jawab, sportif, serta mampu
+                                    bekerja sama dalam tim.
+                                </p>
+                            </li>
+                            <li>
+                                <h4>Memperluas Relasi dan Kerja Sama</h4>
+                                <p>
+                                    Menjalin hubungan baik dengan UKM olahraga
+                                    dari kampus lain maupun komunitas bola voli
+                                    untuk memperluas pengalaman dan jaringan.
+                                </p>
+                            </li>
+                            <li>
+                                <h4>Meningkatkan Eksistensi UKM</h4>
+                                <p>
+                                    Membawa nama baik kampus melalui kegiatan
+                                    olahraga, pertandingan persahabatan, dan
+                                    kompetisi bola voli di tingkat lokal maupun
+                                    nasional.
+                                </p>
+                            </li>
+                        </ol>
+                    </article>
+
+                    <article class="overview-card overview-objectives">
+                        <span class="overview-label">TUJUAN UKM BOLA VOLI</span>
+                        <ul class="overview-objectives-list">
+                            <li>
+                                Menjadi tempat berkumpulnya mahasiswa yang
+                                memiliki minat dan bakat dalam olahraga bola voli.
+                            </li>
+                            <li>
+                                Menciptakan atlet mahasiswa yang berkualitas dan
+                                berprestasi.
+                            </li>
+                            <li>
+                                Membentuk mahasiswa yang sehat secara jasmani
+                                dan memiliki mental yang kuat.
+                            </li>
+                            <li>
+                                Membangun organisasi yang aktif, inovatif, dan
+                                berkelanjutan.
+                            </li>
+                            <li>
+                                Menjadikan bola voli sebagai sarana mempererat
+                                persaudaraan antarmahasiswa.
+                            </li>
                         </ul>
                     </article>
+
+                    <aside class="overview-slogan">
+                        <span class="overview-label">SLOGAN UKM BOLA VOLI</span>
+                        <p>
+                            “Satu Tim, Satu Tujuan, Satu Semangat untuk Meraih
+                            Prestasi!”
+                        </p>
+                    </aside>
                 </div>
             </section>
         </main>
@@ -162,9 +249,7 @@
             const carousel = document.querySelector(".home-carousel");
             const slides = Array.from(carousel.querySelectorAll(".home-slide"));
             const dots = Array.from(carousel.querySelectorAll(".home-carousel-dots button"));
-            const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
             let activeSlide = 0;
-            let autoplay;
 
             function showSlide(index) {
                 activeSlide = (index + slides.length) % slides.length;
@@ -181,42 +266,30 @@
                 });
             }
 
-            function stopAutoplay() {
-                window.clearInterval(autoplay);
-            }
-
-            function startAutoplay() {
-                stopAutoplay();
-                if (!reducedMotion.matches) {
-                    autoplay = window.setInterval(() => showSlide(activeSlide + 1), 2300);
-                }
-            }
-
             carousel.classList.add("is-ready");
+            const slideArea = carousel.querySelector(".home-carousel-slides");
+            function advanceSlide() {
+                showSlide(activeSlide + 1);
+            }
+
+            slideArea.addEventListener("click", advanceSlide);
+            slideArea.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    advanceSlide();
+                }
+            });
             carousel.querySelector(".home-carousel-prev").addEventListener("click", () => {
                 showSlide(activeSlide - 1);
-                startAutoplay();
             });
             carousel.querySelector(".home-carousel-next").addEventListener("click", () => {
                 showSlide(activeSlide + 1);
-                startAutoplay();
             });
             dots.forEach((dot, index) => {
                 dot.addEventListener("click", () => {
                     showSlide(index);
-                    startAutoplay();
                 });
             });
-            carousel.addEventListener("mouseenter", stopAutoplay);
-            carousel.addEventListener("mouseleave", startAutoplay);
-            carousel.addEventListener("focusin", stopAutoplay);
-            carousel.addEventListener("focusout", (event) => {
-                if (!carousel.contains(event.relatedTarget)) {
-                    startAutoplay();
-                }
-            });
-            reducedMotion.addEventListener("change", startAutoplay);
-            startAutoplay();
         </script>
     </body>
 </html>

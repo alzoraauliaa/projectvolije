@@ -36,12 +36,10 @@ header div:first-child span {
 }
 
 header div:first-child img {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     flex: 0 0 50px;
     object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
 }
 
 header nav {
@@ -232,6 +230,15 @@ main li {
     box-shadow: 0 8px 24px rgba(11, 31, 58, 0.12);
 }
 
+.home-carousel-slides {
+    cursor: pointer;
+}
+
+.home-carousel-slides:focus-visible {
+    outline: 3px solid #8fe8ff;
+    outline-offset: -6px;
+}
+
 .home-slide {
     position: absolute;
     inset: 0;
@@ -411,27 +418,49 @@ main li {
 
 .overview-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
 }
 
 .overview-card {
     border: 1px solid #dfe8f3;
     border-radius: 12px;
     background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
-    padding: 22px;
+    padding: 24px;
+}
+
+.overview-section-heading {
+    grid-column: 1 / -1;
+    margin: 8px 0 0;
+    text-align: center;
+}
+
+.overview-section-heading .overview-eyebrow {
+    margin-bottom: 6px;
+}
+
+.overview-section-heading h3 {
+    margin: 0;
 }
 
 .overview-about {
+    grid-column: 1 / -1;
     border-top: 5px solid #1677d2;
 }
 
 .overview-vision {
+    grid-column: 1 / -1;
     border-top: 5px solid #20a39e;
 }
 
 .overview-mission {
+    grid-column: 1 / -1;
     border-top: 5px solid #0b1f3a;
+}
+
+.overview-objectives {
+    grid-column: 1 / -1;
+    border-top: 5px solid #1677d2;
 }
 
 .overview-label {
@@ -458,8 +487,56 @@ main li {
     padding-left: 18px;
 }
 
+.overview-mission-list {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding-left: 24px;
+}
+
+.overview-mission-list li {
+    padding-left: 4px;
+}
+
+.overview-mission-list li::marker,
 .overview-card li::marker {
     color: #1677d2;
+    font-weight: 700;
+}
+
+.overview-mission-list h4 {
+    margin: 0 0 4px;
+    color: #0b1f3a;
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+.overview-mission-list p {
+    margin: 0;
+}
+
+.overview-objectives-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 32px;
+}
+
+.overview-slogan {
+    grid-column: 1 / -1;
+    padding: 24px;
+    border-radius: 12px;
+    background: #0b1f3a;
+    text-align: center;
+}
+
+.overview-slogan .overview-label {
+    color: #8fe8ff;
+}
+
+.overview-slogan p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 /* --- HALAMAN PROFIL --- */
@@ -472,6 +549,7 @@ main li {
     margin: 40px auto;
     padding: 36px 32px;
     background-color: #ffffff;
+    border-radius: 18px;
 }
 
 .profile-copy p {
@@ -505,6 +583,7 @@ main li {
 /* --- HALAMAN STRUKTUR KEANGGOTAAN --- */
 .structure-section {
     max-width: 1200px;
+    border-radius: 18px;
     margin: 40px auto;
     padding: 36px 32px 48px;
     background-color: #ffffff;
@@ -558,6 +637,7 @@ main li {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(220px, 0.55fr);
     align-items: center;
+    border-radius: 18px;
     gap: 48px;
     max-width: 1100px;
     margin: 40px auto;
@@ -617,6 +697,18 @@ main li {
 
     .overview-grid {
         grid-template-columns: 1fr;
+    }
+
+    .overview-objectives-list {
+        grid-template-columns: 1fr;
+    }
+
+    .overview-section-heading h3 {
+        font-size: 20px;
+    }
+
+    .overview-slogan p {
+        font-size: 18px;
     }
 
     .structure-section {
@@ -706,11 +798,10 @@ footer.site-footer {
 
 .footer-logos img {
     display: block;
-    width: 104px;
-    height: 104px;
+    width: 204px;
+    height: 204px;
     object-fit: contain;
-    border: 2px solid #ffffff;
-    border-radius: 50%;
+
 }
 
 .footer-contact {
@@ -860,6 +951,7 @@ footer.site-footer {
    ========================================================= */
 main.halaman-materi {
     max-width: 1100px;
+    border-radius: 18px;
     margin: 40px auto;
     padding: 36px 32px 48px;
     background-color: #ffffff;
@@ -1107,6 +1199,7 @@ main.halaman-materi ul li p {
    ========================================================= */
 main.halaman-prestasi {
     max-width: 1100px;
+    border-radius: 18px;
     margin: 40px auto;
     padding: 36px 32px 48px;
     background-color: #ffffff;
